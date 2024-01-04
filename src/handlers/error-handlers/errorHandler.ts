@@ -10,8 +10,11 @@ const BadRequestError = (message: string, comingFrom: string): CustomHttpError =
 const NotFoundError = (message: string, comingFrom: string): CustomHttpError => {
     return createCustomError(StatusCodes.NOT_FOUND, message, comingFrom);
 }
+const NotAuthorizedError = (
+    message: string = 'Invalid request',
+    comingFrom: string = 'verifyGatewayRequest')
+    : CustomHttpError => {
 
-const NotAuthorizedError = (message: string, comingFrom: string): CustomHttpError => {
     return createCustomError(StatusCodes.UNAUTHORIZED, message, comingFrom);
 }
 
